@@ -2,6 +2,8 @@
 const http = require('http')
 
 // 创建一个 server 服务器
+// request 客户端请求体
+// response 服务器返回体
 const server = http.createServer((req, res) => {
   // 返回体头部类型
   res.writeHead(200, {'content-type': 'text/html'})
