@@ -10,7 +10,6 @@ class BaseModel {
     if (message) {
       this.message = message
     }
-    console.log('message:', this.message, 'data:', data)
   }
 }
 
@@ -23,8 +22,6 @@ class SuccessModel extends BaseModel {
 
 class ErrorModel extends BaseModel {
   constructor(data, message) {
-    console.log('error-data:', data)
-    console.log(typeof data === 'string')
     super(data, message)
     this.error = -1
   }

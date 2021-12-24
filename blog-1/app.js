@@ -3,6 +3,7 @@ const querystring = require('querystring')
 const handleBlogRouter = require('./src/router/blog')
 const handleUserRouter = require('./src/router/user')
 
+
 // 用于获取 post 请求的参数
 const getPostData = (req) => {
   promise = new Promise((resolve, reject) => {
@@ -46,11 +47,13 @@ const serverHandle = (req, res) => {
     req.body = postData
 
     // 处理 blog 路由
-    const blogData = handleBlogRouter(req, res)
-    if (blogData) {
-      res.end(
-        JSON.stringify(blogData)
-      )
+    const blogResult = handleBlogRouter(req, res)
+    if (blogResult) {
+      blogResult.then(blogData => {
+        res.end(
+          JSON.stringify(blogData)
+        )
+      })
       return
     }
 
