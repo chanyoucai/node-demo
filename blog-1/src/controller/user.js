@@ -1,8 +1,13 @@
+// 引入 sql 执行函数
+const { exec } = require('../db/mysql')
+
 const login = (username, password) => {
-  if (username === 'zhangsan' && password === '123') {
-    return true
-  }
-  return false
+  const sql = `
+    select username from users where username='${username}' and password='${password}';
+  `
+  return exec(sql).then(rows => {
+    return rows[0] || []
+  })
 }
 
 module.exports = {
