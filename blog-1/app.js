@@ -43,6 +43,20 @@ const serverHandle = (req, res) => {
   // 解析 query
   req.query = querystring.parse(url.split('?')[1])
 
+  // 解析 cookie 
+  // cookie 格式为 k1=v1;k2=v2;k3=v3
+  req.cookie = {}
+  const cookieStr = req.headers.cookie || ""
+  // 通过 ; 分割成数组，遍历数组元素，再通过 = 分割成数组，拿到 key 和 val 赋值给 cookie 对象
+  cookieStr.split(";").forEach(item => {
+    if (!item) return
+    const arr = item.split("=")
+    const key = arr[0]
+    const val = arr[1]
+    req.cookie[key] = val
+  });
+  console.log("req cookie is",req.cookie)
+
   getPostData(req).then(postData => {
     req.body = postData
 
