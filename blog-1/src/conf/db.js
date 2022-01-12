@@ -17,7 +17,7 @@ if (env === 'dev') { // 开发环境数据库配置
   }
   REDIS_CONF = {
     port: 6379,
-    host: '127.0.0,1'
+    host: '127.0.0.1'
   }
 }
 
@@ -31,10 +31,11 @@ if (env === 'production') { // 生产环境数据库配置
   }
   REDIS_CONF = {
     port: 6379,
-    host: '127.0.0,1'
+    host: '127.0.0.1'
   }
 }
 
 module.exports = {
-  MYSQL_CONF
+  MYSQL_CONF,
+  REDIS_CONF
 }
