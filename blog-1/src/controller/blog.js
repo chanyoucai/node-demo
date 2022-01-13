@@ -1,5 +1,6 @@
 // 引入 sql 执行函数
 const { exec } = require('../db/mysql')
+const xss = require("xss")
 
 // 查询博客列表
 const getList = (author, keyword) => {
@@ -28,9 +29,9 @@ const getDetail = (id) => {
 // 新增博客
 const newBlog = (blogData = {}) => {
   // blogData 是一个对象，包含 title，content 等属性
-  const title = blogData.title
-  const content = blogData.content
-  const author = blogData.author
+  const title = xss(blogData.title)
+  const content = xss(blogData.content)
+  const author = xss(blogData.author)
 
   const sql = `
     insert into blogs (title, content, createtime, author)
