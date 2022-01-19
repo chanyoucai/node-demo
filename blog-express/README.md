@@ -8,5 +8,5 @@ express blog-express
 express只是一个框架，是在被引入项目中使用的，而非工具。而express-generator则是一个工具，此工具的作用是生成express项目。
 安装成功之后，可以通过express命令调用该工具,需要明确的是，在没有安装express-generator前，express命令是没法正确执行的。
 
-### express-cookie
-一个express 处理 cookie 的 npm 包，用express-generator生成的项目默认会带有一个处理 cookie 的包：cookie-parser
+### express-session
+一个 express 处理 session 的 npm 包，用express-generator生成的项目默认会带有一个处理 cookie 的包：cookie-parser
